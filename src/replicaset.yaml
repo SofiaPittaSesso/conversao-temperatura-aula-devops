@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: meureplicaset
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: convtemp
+  template:
+    metadata:
+      labels:
+        app: convtemp
+    spec:
+      containers:
+        - name: meucontainer
+          image: sofiapittasesso/conversao-temperatura:v1
+          ports:
+            - containerPort: 8080
